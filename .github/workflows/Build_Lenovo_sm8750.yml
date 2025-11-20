@@ -318,6 +318,8 @@ jobs:
       - name: 🔧 Set Kernel name (写入内核名称)
         run: |
           cd kernel_workspace
+          CUSTOM_MARKER="_闲鱼@搞机救砖狂魔"
+          MODIFIED_SUFFIX="${DEFAULT_SUFFIX}${CUSTOM_MARKER}"
           echo "自定义后缀: $DEFAULT_SUFFIX"
           ESCAPED_SUFFIX=$(printf '%s\n' "$DEFAULT_SUFFIX" | sed 's:[\/&]:\\&:g')
           sudo sed -i "s/-4k/$ESCAPED_SUFFIX/g" ./common/arch/arm64/configs/gki_defconfig
